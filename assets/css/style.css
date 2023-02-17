@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'inter-regular';
+  src: url('../fonts/static/Inter-Regular.ttf');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: geometricPrecision;
+}
+@font-face {
+  font-family: 'inter-bold';
+  src: url('../fonts/static/Inter-Bold.ttf');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: geometricPrecision;
+}
+@font-face {
+  font-family: 'inter-extra-bold';
+  src: url('../fonts/static/Inter-ExtraBold.ttf');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: geometricPrecision;
+}
+html body * {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html body li {
+  list-style: none;
+}
+html body a {
+  text-decoration: none;
+  color: unset;
+}
+html body button {
+  background-color: unset;
+  border: unset;
+  padding: unset;
+}
