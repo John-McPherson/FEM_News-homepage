@@ -9,3 +9,5 @@ _assets/
 *.eps
 .DS_Store
 design/
+mixins.css
+resets.css
