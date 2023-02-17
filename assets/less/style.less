@@ -3,26 +3,127 @@
 
 html {
     body {
-        * {
+        font-family: 'inter-regular';
 
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        &:before {
+            content: '';
+            background-color: @veryDarkBlue;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            transition: opacity .25s ease-in-out;
+
         }
 
-        li {
-            list-style: none;
+        &[data-overlay="true"],
+        &[data-navoverlay="true"] {
+            pointer-events: none;
+
+
+            &:before {
+
+                opacity: .25;
+                transition: opacity .5s ease-in-out;
+            }
         }
 
-        a {
-            text-decoration: none;
-            color: unset;
+        &[data-navoverlay="true"] {
+            &:before {
+                @media screen and (min-width: @tabletSize) {
+                    display: none;
+                }
+            }
         }
 
-        button {
-            background-color: unset;
-            border: unset;
-            padding: unset;
+        nav {
+            display: flex;
+            width: 100vw;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 7vh 4vw;
+
+            @media screen and (min-width: @tabletSize) {
+                padding: 10vh 11.3vw;
+            }
+
+            button {
+                background-image: url('../images/icon-menu.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                width: 42px;
+                height: 17px;
+                justify-self: flex-end;
+                z-index: 10;
+                cursor: pointer;
+
+                &[data-navopen="true"] {
+                    background-image: url('../images/icon-menu-close.svg');
+                    height: 32px;
+                    width: 32px;
+                    pointer-events: auto;
+                }
+
+                @media screen and (min-width: @tabletSize) {
+                    display: none;
+                }
+            }
+
+            ul {
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 100vh;
+                width: 70vw;
+                background-color: #ffffff;
+                transition: clip-path .25s ease-in-out;
+                clip-path: circle(0% at 100% 0%);
+                padding: 22vh 6vw;
+                z-index: 1;
+
+
+
+                &[data-navopen="true"] {
+                    pointer-events: auto;
+                    clip-path: circle(100%);
+                    transition: clip-path .5s ease-in-out;
+                }
+
+                li {
+                    padding-bottom: 4vh;
+
+                    a {
+                        color: @darkGrayishBlue;
+
+                        &:hover {
+                            color: @softRed;
+                        }
+                    }
+                }
+
+                @media screen and (min-width: @tabletSize) {
+                    clip-path: unset;
+                    position: unset;
+                    height: 100%;
+                    width: auto;
+                    padding: unset;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-basis: 1;
+                    gap: 2em;
+
+                    li {
+                        padding: unset;
+                    }
+                }
+            }
         }
     }
 }

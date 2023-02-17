@@ -28,15 +28,26 @@
   </style>
 </head>
 
-<body>
+<body data-overlay="false" data-navoverlay="false">
 
-  Home
-  New
-  Popular
-  Trending
-  Categories
 
-  The Bright Future of Web 3.0?
+  <nav>
+    <div class="logo">
+      <a href="#" target="_blank" aria-label="internal link - Home">
+        <img src="./assets/images/logo.svg" alt="">
+      </a>
+    </div>
+    <ul data-navopen="false">
+      <li><a href="#" target="_blank" aria-label="internal link - Home">Home</a></li>
+      <li><a href="#" target="_blank" aria-label="internal link - New">New</a></li>
+      <li><a href="#" target="_blank" aria-label="internal link - Popular">Popular</a></li>
+      <li><a href="#" target="_blank" aria-label="internal link - Trending">Trending</a></li>
+      <li><a href="#" target="_blank" aria-label="internal link - Categories">Categories</a></li>
+    </ul>
+    <button class="nav-toggle" data-navopen="false"></button>
+  </nav>
+
+  <!-- The Bright Future of Web 3.0?
 
   We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the
   people.
@@ -70,7 +81,7 @@
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">John McPherson</a>.
-  </footer>
+  </footer> -->
 </body>
 
 </html>

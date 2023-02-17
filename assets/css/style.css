@@ -37,3 +37,135 @@ html body button {
   border: unset;
   padding: unset;
 }
+html body {
+  font-family: 'inter-regular';
+}
+html body:before {
+  content: '';
+  background-color: hsl(240, 100%, 5%);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+}
+html body[data-overlay="true"],
+html body[data-navoverlay="true"] {
+  pointer-events: none;
+}
+html body[data-overlay="true"]:before,
+html body[data-navoverlay="true"]:before {
+  opacity: 0.25;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+@media screen and (min-width: 826px) {
+  html body[data-navoverlay="true"]:before {
+    display: none;
+  }
+}
+html body nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 7vh 4vw;
+}
+@media screen and (min-width: 826px) {
+  html body nav {
+    padding: 10vh 11.3vw;
+  }
+}
+html body nav button {
+  background-image: url('../images/icon-menu.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 42px;
+  height: 17px;
+  justify-self: flex-end;
+  z-index: 10;
+  cursor: pointer;
+}
+html body nav button[data-navopen="true"] {
+  background-image: url('../images/icon-menu-close.svg');
+  height: 32px;
+  width: 32px;
+  pointer-events: auto;
+}
+@media screen and (min-width: 826px) {
+  html body nav button {
+    display: none;
+  }
+}
+html body nav ul {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 70vw;
+  background-color: #ffffff;
+  -webkit-transition: -webkit-clip-path 0.25s ease-in-out;
+  transition: -webkit-clip-path 0.25s ease-in-out;
+  transition: clip-path 0.25s ease-in-out;
+  transition: clip-path 0.25s ease-in-out, -webkit-clip-path 0.25s ease-in-out;
+  -webkit-clip-path: circle(0% at 100% 0%);
+          clip-path: circle(0% at 100% 0%);
+  padding: 22vh 6vw;
+  z-index: 1;
+}
+html body nav ul[data-navopen="true"] {
+  pointer-events: auto;
+  -webkit-clip-path: circle(100%);
+          clip-path: circle(100%);
+  -webkit-transition: -webkit-clip-path 0.5s ease-in-out;
+  transition: -webkit-clip-path 0.5s ease-in-out;
+  transition: clip-path 0.5s ease-in-out;
+  transition: clip-path 0.5s ease-in-out, -webkit-clip-path 0.5s ease-in-out;
+}
+html body nav ul li {
+  padding-bottom: 4vh;
+}
+html body nav ul li a {
+  color: hsl(236, 13%, 42%);
+}
+html body nav ul li a:hover {
+  color: hsl(5, 85%, 63%);
+}
+@media screen and (min-width: 826px) {
+  html body nav ul {
+    -webkit-clip-path: unset;
+            clip-path: unset;
+    position: unset;
+    height: 100%;
+    width: auto;
+    padding: unset;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-preferred-size: 1;
+        flex-basis: 1;
+    gap: 2em;
+  }
+  html body nav ul li {
+    padding: unset;
+  }
+}
