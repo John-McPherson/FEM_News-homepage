@@ -5,6 +5,8 @@ html {
     body {
         font-family: 'inter-regular';
 
+        // overlay styles for popups
+
         &:before {
             content: '';
             background-color: @veryDarkBlue;
@@ -24,19 +26,12 @@ html {
 
 
             &:before {
-
                 opacity: .25;
                 transition: opacity .5s ease-in-out;
             }
         }
 
-        &[data-navoverlay="true"] {
-            &:before {
-                @media screen and (min-width: @tabletSize) {
-                    display: none;
-                }
-            }
-        }
+        // navbar styles 
 
         nav {
             display: flex;
@@ -100,12 +95,15 @@ html {
 
                     a {
                         color: @darkGrayishBlue;
+                        transition: color .25s ease;
 
                         &:hover {
                             color: @softRed;
                         }
                     }
                 }
+
+                // desktop size styles
 
                 @media screen and (min-width: @tabletSize) {
                     clip-path: unset;
@@ -125,5 +123,16 @@ html {
                 }
             }
         }
+
+        // nav overlay styles
+
+        &[data-navoverlay="true"] {
+            &:before {
+                @media screen and (min-width: @tabletSize) {
+                    display: none;
+                }
+            }
+        }
+
     }
 }

@@ -62,11 +62,6 @@ html body[data-navoverlay="true"]:before {
   -webkit-transition: opacity 0.5s ease-in-out;
   transition: opacity 0.5s ease-in-out;
 }
-@media screen and (min-width: 826px) {
-  html body[data-navoverlay="true"]:before {
-    display: none;
-  }
-}
 html body nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -140,6 +135,8 @@ html body nav ul li {
 }
 html body nav ul li a {
   color: hsl(236, 13%, 42%);
+  -webkit-transition: color 0.25s ease;
+  transition: color 0.25s ease;
 }
 html body nav ul li a:hover {
   color: hsl(5, 85%, 63%);
@@ -167,5 +164,10 @@ html body nav ul li a:hover {
   }
   html body nav ul li {
     padding: unset;
+  }
+}
+@media screen and (min-width: 826px) {
+  html body[data-navoverlay="true"]:before {
+    display: none;
   }
 }
