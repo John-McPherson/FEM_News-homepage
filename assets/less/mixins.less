@@ -50,3 +50,23 @@
 @navBar: 3;
 @overLay: 5;
 @popUp: 10;
+
+// overlays
+
+.overlay {
+    content: '';
+
+    background-color: @veryDarkBlue;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+}
+
+.overlayOpen {
+    opacity: .25;
+    transition: opacity .5s ease-in-out;
+}
