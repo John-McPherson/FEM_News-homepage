@@ -5,6 +5,7 @@ html {
     body {
         font-family: @regular;
         background-color: @offWhite;
+        color: @paraText;
 
         nav {
             position: fixed;
@@ -18,6 +19,7 @@ html {
             align-items: center;
             padding: @mobNavPadding;
 
+
             @media screen and (min-width: @mobileSize) {
                 padding: @desktopNavPadding;
             }
@@ -29,6 +31,11 @@ html {
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
+
+                @media screen and (min-width: @mobileSize) {
+                    height: 2.43em;
+                    width: 4em;
+                }
             }
 
             .nav_toggle {
@@ -40,6 +47,7 @@ html {
                 background-position: center;
                 z-index: 100;
 
+
                 @media screen and (min-width: @mobileSize) {
                     display: none;
                 }
@@ -50,13 +58,21 @@ html {
             }
 
             .links {
-                max-width: 60%;
+                max-width: 70%;
 
                 ul {
                     display: flex;
                     justify-content: space-around;
                     width: 440px;
                     max-width: 100%;
+
+                    li {
+                        a {
+                            &:hover {
+                                color: @softRed;
+                            }
+                        }
+                    }
                 }
             }
 

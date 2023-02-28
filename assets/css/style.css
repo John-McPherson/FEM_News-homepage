@@ -78,6 +78,7 @@ html body video {
 html body {
   font-family: 'inter-regular';
   background-color: hsl(36, 100%, 99%);
+  color: hsl(236, 13%, 42%);
 }
 html body nav {
   position: fixed;
@@ -113,6 +114,12 @@ html body nav .logo {
   background-repeat: no-repeat;
   background-position: center;
 }
+@media screen and (min-width: 600px) {
+  html body nav .logo {
+    height: 2.43em;
+    width: 4em;
+  }
+}
 html body nav .nav_toggle {
   background-image: url(../images/icon-menu.svg);
   height: 2em;
@@ -131,7 +138,7 @@ html body nav[data-navopen="true"] > .nav_toggle {
   background-image: url(../images/icon-menu-close.svg);
 }
 html body nav .links {
-  max-width: 60%;
+  max-width: 70%;
 }
 html body nav .links ul {
   display: -webkit-box;
@@ -141,6 +148,9 @@ html body nav .links ul {
       justify-content: space-around;
   width: 440px;
   max-width: 100%;
+}
+html body nav .links ul li a:hover {
+  color: hsl(5, 85%, 63%);
 }
 @media screen and (max-width: 600px) {
   html body nav .links {
