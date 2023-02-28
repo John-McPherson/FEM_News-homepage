@@ -8,6 +8,14 @@
 @veryDarkBlue: hsl(240, 100%, 5%);
 
 
+// paddings
+
+@mobNavPadding: 3em 2em;
+@desktopNavPadding: 5.5em 10%;
+// max width
+
+
+
 // fonts
 
 @font-face {
@@ -64,9 +72,11 @@
     top: 0;
     opacity: 0;
     transition: opacity .25s ease-in-out;
+    pointer-events: none;
 }
 
 .overlayOpen {
+    pointer-events: unset;
     opacity: .25;
     transition: opacity .5s ease-in-out;
 }

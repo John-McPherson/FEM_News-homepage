@@ -1,10 +1,20 @@
 html {
-    body {
-        * {
+    color-scheme: dark light;
 
+    body {
+        min-height: 100vh;
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+
+        * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font: inherit;
         }
 
         li {
@@ -20,6 +30,15 @@ html {
             background-color: unset;
             border: unset;
             padding: unset;
+            cursor: pointer;
+        }
+
+        img,
+        picture,
+        svg,
+        video {
+            max-width: 100%;
+            display: block;
         }
     }
 }

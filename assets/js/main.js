@@ -1,17 +1,15 @@
 window.onload = function () {
 
-    document.querySelectorAll('.nav-toggle').forEach(button => {
-        let body = document.querySelector('body')
-        button.onclick = function (e) {
-            let navElms = document.querySelectorAll("[data-navopen]");
-            console.log(navElms[0])
-            navElms.forEach(navElm => {
-                    (navElm.dataset.navopen == "true" ? navElm.dataset.navopen = "false" : navElm.dataset.navopen = "true")
-                })
-                (body.dataset.navoverlay == "true" ? body.dataset.navoverlay = "false" : body.dataset.navoverlay = "true")
+    let navToggle = document.querySelector('.nav_toggle');
+    let nav = document.querySelector('nav');
+    navToggle.onclick = function () {
+        if (nav.dataset.navopen == 'true') {
+            nav.dataset.navopen = 'false'
 
-        };
-    })
+        } else {
+            nav.dataset.navopen = 'true'
 
+        }
+    }
 
 };

@@ -3,149 +3,116 @@
 
 html {
     body {
-        font-family: 'inter-regular';
-
-        // overlay styles for popups
-        &:before {
-            .overlay;
-        }
-
-        &[data-overlay="true"],
-        &[data-navoverlay="true"] {
-            z-index: @overLay;
-            pointer-events: none;
-
-            &:before {
-                .overlayOpen;
-            }
-        }
-
-        // navbar styles 
+        font-family: @regular;
+        background-color: @offWhite;
 
         nav {
-            display: flex;
-            width: 100vw;
-            align-items: center;
-            justify-content: space-between;
             position: fixed;
-            top: 0;
+            width: 100vw;
             left: 0;
-            padding: 3vh 4vw;
-            background-color: #ffffff;
-            z-index: @navBar;
+            top: 0;
+            background-color: @offWhite;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: @mobNavPadding;
 
-            &:before {
-                .overlay;
-                width: 100%;
-                height: 100%;
+            @media screen and (min-width: @mobileSize) {
+                padding: @desktopNavPadding;
             }
 
-            &:has([data-navopen="true"]) {
-                &:before {
-                    .overlayOpen;
-                }
-            }
-
-
-
-            @media screen and (min-width: @tabletSize) {
-                top: 8vh;
-                padding: 2vh 11.3vw;
-            }
-
-            button {
-                background-image: url('../images/icon-menu.svg');
-                background-repeat: no-repeat;
+            .logo {
+                background-image: url(../images/logo.svg);
+                height: 2em;
+                width: 3.1em;
                 background-size: contain;
+                background-repeat: no-repeat;
                 background-position: center;
-                width: 42px;
-                height: 17px;
-                justify-self: flex-end;
-                z-index: 10;
-                cursor: pointer;
+            }
 
-                &[data-navopen="true"] {
-                    background-image: url('../images/icon-menu-close.svg');
-                    height: 32px;
-                    width: 32px;
-                    pointer-events: auto;
-                }
+            .nav_toggle {
+                background-image: url(../images/icon-menu.svg);
+                height: 2em;
+                width: 3.1em;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                z-index: 100;
 
-                @media screen and (min-width: @tabletSize) {
+                @media screen and (min-width: @mobileSize) {
                     display: none;
                 }
             }
 
-            ul {
-                position: absolute;
-                right: 0;
-                top: 0;
-                height: 100vh;
-                width: 70vw;
-                background-color: #ffffff;
-                transition: clip-path .25s ease-in-out;
-                clip-path: circle(0% at 100% 0%);
-                padding: 22vh 6vw;
-                z-index: 1;
+            &[data-navopen="true"]>.nav_toggle {
+                background-image: url(../images/icon-menu-close.svg);
+            }
 
+            .links {
+                max-width: 60%;
 
-
-                &[data-navopen="true"] {
-                    pointer-events: auto;
-                    clip-path: circle(100%);
-                    transition: clip-path .5s ease-in-out;
+                ul {
+                    display: flex;
+                    justify-content: space-around;
+                    width: 440px;
+                    max-width: 100%;
                 }
+            }
 
-                li {
-                    padding-bottom: 4vh;
+            @media screen and (max-width: @mobileSize) {
 
-                    a {
-                        color: @darkGrayishBlue;
-                        transition: color .25s ease;
 
-                        &:hover {
-                            color: @softRed;
+                .links {
+
+                    position: fixed;
+                    right: 0;
+                    top: 0;
+                    height: 100vh;
+                    width: 66.66vw;
+                    background-color: white;
+                    clip-path: circle(0% at 100% 0%);
+                    transition: clip-path .25s ease-in-out;
+
+
+                    &::before {
+
+                        position: fixed;
+                        left: 0;
+                        top: 0;
+                        content: '';
+                        background-color: black;
+                        opacity: .25;
+                        width: 33.44vw;
+                        height: 100vh;
+                        clip-path: circle(0% at 100% 0%);
+                        transition: clip-path .25s ease-in-out;
+                    }
+
+                    ul {
+                        margin: 9.3em 1.6em;
+
+                        min-height: 20vh;
+                        flex-direction: column;
+
+
+                        li {
+                            font-size: 1.1em;
                         }
                     }
                 }
 
-                // desktop size styles
+                &[data-navopen="true"]>.links {
+                    clip-path: circle(100%);
+                    transition: clip-path .5s ease-in-out;
 
-                @media screen and (min-width: @tabletSize) {
-                    clip-path: unset;
-                    position: unset;
-                    height: 100%;
-                    width: auto;
-                    padding: unset;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-basis: 1;
-                    gap: 2em;
+                    &::before {
 
-                    li {
-                        padding: unset;
+
+                        clip-path: circle(100%);
+                        transition: clip-path .5s ease-in-out;
+
                     }
-                }
-            }
-        }
-
-        // nav overlay styles
-
-        &[data-navoverlay="true"] {
-            &:before {
-                @media screen and (min-width: @tabletSize) {
-                    display: none;
-                }
-            }
-        }
-
-        main {
-            margin-top: 10vh;
-
-            section {
-                img {
-                    width: 100%;
                 }
             }
         }
