@@ -146,6 +146,23 @@ html {
 
             }
 
+            h1 {
+                font-size: 2.5em;
+                font-family: @extraBold;
+                color: @headingText;
+
+                @media screen and (min-width: @mobileSize) {
+                    font-size: 3em;
+                    padding-right: 1em;
+                }
+            }
+
+            h3 {
+                font-size: 1.25em;
+                font-family: @bold;
+                // color: @offWhite;
+
+            }
 
             .main {
                 @media screen and (min-width: @tabletSize) {
@@ -197,6 +214,11 @@ html {
                     flex-direction: column;
                     justify-content: space-around;
                     padding: 2em 1.5em;
+                    margin: 4em 0;
+
+                    @media screen and (min-width: @tabletSize) {
+                        margin: unset;
+                    }
 
                     &__text {
                         padding: 2em 0;
@@ -216,28 +238,64 @@ html {
                     }
 
                     h3 {
-                        font-size: 1.25em;
-                        font-family: @bold;
+
                         color: @offWhite;
                         padding-bottom: 1em;
                     }
                 }
             }
 
-            h1 {
-                font-size: 2.5em;
-                font-family: @extraBold;
-                color: @headingText;
+            .cards {
+                margin-bottom: 4.5em;
+
+                @media screen and (min-width: @tabletSize) {
+                    margin-top: 4.5em;
+                }
 
                 @media screen and (min-width: @mobileSize) {
-                    font-size: 3em;
-                    padding-right: 1em;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1.5em;
+                }
+
+                @media screen and (min-width: @tabletSize) {
+
+                    grid-template-columns: 1fr 1fr 1fr;
+
+                }
+
+                &__card {
+                    display: flex;
+                    margin-bottom: 2em;
+
+                    &__img {
+                        margin-right: 1.5em;
+
+                        width: 50%;
+                    }
+
+                    &__text {
+                        width: 50%;
+                        color: @veryDarkBlue;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        p {
+                            color: @paraText;
+                            line-height: 150%;
+                        }
+
+                        h2 {
+                            font-size: 3em;
+                            color: @paraText;
+                            font-family: @bold;
+                            opacity: .25;
+                        }
+
+                    }
                 }
             }
-
-
-
-            @media screen and (min-width: @mobileSize) {}
         }
     }
 }

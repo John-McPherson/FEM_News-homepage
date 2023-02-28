@@ -223,6 +223,21 @@ html body main {
     padding-top: 0;
   }
 }
+html body main h1 {
+  font-size: 2.5em;
+  font-family: 'inter-extra-bold';
+  color: hsl(240, 100%, 5%);
+}
+@media screen and (min-width: 600px) {
+  html body main h1 {
+    font-size: 3em;
+    padding-right: 1em;
+  }
+}
+html body main h3 {
+  font-size: 1.25em;
+  font-family: 'inter-bold';
+}
 @media screen and (min-width: 826px) {
   html body main .main {
     gap: 2rem;
@@ -278,6 +293,12 @@ html body main .main__sidebar {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   padding: 2em 1.5em;
+  margin: 4em 0;
+}
+@media screen and (min-width: 826px) {
+  html body main .main__sidebar {
+    margin: unset;
+  }
 }
 html body main .main__sidebar__text {
   padding: 2em 0;
@@ -292,19 +313,63 @@ html body main .main__sidebar h2 {
   color: hsl(35, 77%, 62%);
 }
 html body main .main__sidebar h3 {
-  font-size: 1.25em;
-  font-family: 'inter-bold';
   color: hsl(36, 100%, 99%);
   padding-bottom: 1em;
 }
-html body main h1 {
-  font-size: 2.5em;
-  font-family: 'inter-extra-bold';
-  color: hsl(240, 100%, 5%);
+html body main .cards {
+  margin-bottom: 4.5em;
+}
+@media screen and (min-width: 826px) {
+  html body main .cards {
+    margin-top: 4.5em;
+  }
 }
 @media screen and (min-width: 600px) {
-  html body main h1 {
-    font-size: 3em;
-    padding-right: 1em;
+  html body main .cards {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1.5em 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
   }
+}
+@media screen and (min-width: 826px) {
+  html body main .cards {
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+html body main .cards__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 2em;
+}
+html body main .cards__card__img {
+  margin-right: 1.5em;
+  width: 50%;
+}
+html body main .cards__card__text {
+  width: 50%;
+  color: hsl(240, 100%, 5%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html body main .cards__card__text p {
+  color: hsl(236, 13%, 42%);
+  line-height: 150%;
+}
+html body main .cards__card__text h2 {
+  font-size: 3em;
+  color: hsl(236, 13%, 42%);
+  font-family: 'inter-bold';
+  opacity: 0.25;
 }
